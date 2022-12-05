@@ -34,7 +34,6 @@ const styles = StyleSheet.create({
     color: "#222222",
   },
   tasksContainer: {
-    height: "82%",
     width: "90%",
   },
 });
