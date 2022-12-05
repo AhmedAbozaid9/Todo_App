@@ -1,4 +1,4 @@
-import { Text, StyleSheet, FlatList } from "react-native";
+import { Text, StyleSheet, FlatList, Image } from "react-native";
 import React, { useState } from "react";
 
 import Screen from "../components/Screen";
@@ -14,12 +14,19 @@ export default function Tasks() {
   return (
     <Screen>
       <Text style={styles.header}>Tasks</Text>
-      <FlatList
-        style={styles.tasksContainer}
-        persistentScrollbar={true}
-        data={tasks}
-        renderItem={({ item }) => <TodoItem text={item} />}
-      />
+      {tasks.length ? (
+        <FlatList
+          style={styles.tasksContainer}
+          persistentScrollbar={true}
+          data={tasks}
+          renderItem={({ item }) => <TodoItem text={item} />}
+        />
+      ) : (
+        <Image
+          source={require("../assets/noDataImage.png")}
+          style={styles.image}
+        />
+      )}
       <BigButton handleClick={addTask} text="add a new task" />
     </Screen>
   );
@@ -35,5 +42,10 @@ const styles = StyleSheet.create({
   },
   tasksContainer: {
     width: "90%",
+  },
+  image: {
+    width: 300,
+    height: 300,
+    marginVertical: "30%",
   },
 });
