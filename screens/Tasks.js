@@ -1,4 +1,4 @@
-import { ScrollView, Text, StyleSheet, FlatList } from "react-native";
+import { Text, StyleSheet, FlatList } from "react-native";
 import React, { useState } from "react";
 
 import Screen from "../components/Screen";
@@ -13,21 +13,28 @@ export default function Tasks() {
   };
   return (
     <Screen>
-      <Text>Tasks</Text>
-      <ScrollView style={styles.tasksContainer} persistentScrollbar={true}>
-        <FlatList
-          data={tasks}
-          renderItem={({ item }) => <TodoItem text={item} />}
-        />
-      </ScrollView>
+      <Text style={styles.header}>Tasks</Text>
+      <FlatList
+        style={styles.tasksContainer}
+        persistentScrollbar={true}
+        data={tasks}
+        renderItem={({ item }) => <TodoItem text={item} />}
+      />
       <BigButton handleClick={addTask} text="add a new task" />
     </Screen>
   );
 }
 
 const styles = StyleSheet.create({
+  header: {
+    fontSize: 20,
+    fontWeight: "bold",
+    alignSelf: "flex-start",
+    margin: 20,
+    color: "#222222",
+  },
   tasksContainer: {
-    backgroundColor: "gray",
     height: "82%",
+    width: "90%",
   },
 });

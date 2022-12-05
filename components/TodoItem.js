@@ -22,11 +22,10 @@ const styles = StyleSheet.create({
   todo: {
     flexDirection: "row",
     backgroundColor: "white",
-    borderColor: "black",
-    borderWidth: 2,
-    borderStyle: "solid",
+    borderLeftColor: "#FF5D5D",
+    borderLeftWidth: 2,
+    borderLeftStyle: "solid",
     margin: 5,
-    padding: 5,
-    borderRadius: 10,
+    padding: 10,
   },
 });
