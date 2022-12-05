@@ -1,9 +1,13 @@
 import { TouchableOpacity, Text, StyleSheet } from "react-native";
 import React from "react";
 
-export default function BigButton({ text }) {
+export default function BigButton({ text, positionStyle, handleClick }) {
   return (
-    <TouchableOpacity style={styles.addTask} activeOpacity={0.8}>
+    <TouchableOpacity
+      style={[styles.addTask, positionStyle]}
+      activeOpacity={0.8}
+      onPress={handleClick}
+    >
       <Text style={styles.addText}>{text}</Text>
     </TouchableOpacity>
   );
@@ -11,11 +15,8 @@ export default function BigButton({ text }) {
 const styles = StyleSheet.create({
   addTask: {
     backgroundColor: "#FF74B1",
-    color: "white",
     padding: 15,
     borderRadius: 100,
-    position: "absolute",
-    bottom: 20,
     margin: 40,
     width: "95%",
   },
